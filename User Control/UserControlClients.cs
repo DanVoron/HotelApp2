@@ -17,8 +17,8 @@ namespace HotelApp2.User_Control
         public UserControlClients()
         {
             InitializeComponent();
-           
-     }
+
+        }
         Connect conn = new Connect();
         private void textBoxSearchUsername_TextChanged(object sender, EventArgs e)
         {
@@ -30,8 +30,8 @@ namespace HotelApp2.User_Control
             textBoxLastName.Clear();
             textBoxPhoneNumb.Clear();
             textBoxAdress.Clear();
-            
-            
+
+
         }
         private void Clear1()
         {
@@ -44,7 +44,7 @@ namespace HotelApp2.User_Control
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            
+
             string[] wordsToCheck = { "/", "--", "'", "~", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "`", ";", ":", "<", ">", "\\", "|" }; // Массив запрещённых слов/символов от sql иньекций
             if (wordsToCheck.Any(word => textBoxFirstName.Text.Contains(word)) || wordsToCheck.Any(word => textBoxFirstName.Text.Contains(word)))
             {
@@ -53,17 +53,17 @@ namespace HotelApp2.User_Control
             }
             if (textBoxFirstName.Text.Length > 0) // проверяем введён ли логин     
             {
-                if (textBoxLastName.Text.Length > 0) 
-                {                    
-                    if(textBoxPhoneNumb.Text.Length > 0)
+                if (textBoxLastName.Text.Length > 0)
+                {
+                    if (textBoxPhoneNumb.Text.Length > 0)
                     {
                         if (textBoxAdress.Text.Length > 0)
                         {
                             try
                             {
-                                if (conn.insertClients1(textBoxFirstName.Text, textBoxLastName.Text,textBoxPhoneNumb.Text,textBoxAdress.Text))
+                                if (conn.insertClients1(textBoxFirstName.Text, textBoxLastName.Text, textBoxPhoneNumb.Text, textBoxAdress.Text))
                                     MessageBox.Show("Клиент добавлен успешно");
-                                     Clear();
+                                Clear();
                             }
                             catch
                             {
@@ -89,6 +89,7 @@ namespace HotelApp2.User_Control
         {
             Connect conn = new Connect();
             dataGridViewClient.DataSource = conn.getClients();
+            dataGridViewClient.Sort(dataGridViewClient.Columns[5], ListSortDirection.Ascending);
         }
 
         private void tabPageSearchClient_Leave(object sender, EventArgs e)
@@ -152,6 +153,26 @@ namespace HotelApp2.User_Control
                 textBoxLastName1.Text = row.Cells[2].Value.ToString();
                 textBoxPhone1.Text = row.Cells[3].Value.ToString();
                 textBoxAdress1.Text = row.Cells[4].Value.ToString();
+            }
+        }
+
+        private void dataGridViewClient_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            foreach (DataGridViewRow row in dataGridViewClient.Rows)
+            {
+                if (row.Cells[5].Value.ToString() == "Нет       ")
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.Style.BackColor = Color.DarkGray;
+
+                    }
+                //if (row.Cells[5].Value.ToString() == "Да        ")
+                //    foreach (DataGridViewCell cell in row.Cells)
+                //    {
+                //        dataGridViewClient.Rows[row.Index].Cells[5].Style.BackColor = Color.Green;
+                //        //cell.Style.BackColor = Color.White;
+                //    }
             }
         }
     }

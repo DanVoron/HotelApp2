@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace HotelApp2.Classes
 {
@@ -50,7 +51,7 @@ namespace HotelApp2.Classes
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            string insertQuery = "insert into Users (Login,Password) values  (@n,@s)";
+            string insertQuery = "insert into Users (Login,Password,Active) values  (@n,@s,'Да')";
             command.CommandText = insertQuery;
             command.Connection = conn.GetConnection();
 
@@ -99,24 +100,23 @@ namespace HotelApp2.Classes
         //$"delete from users where Login = '{a}'";
         public bool DellUsers (string a)
         {
-            Connect conn = new Connect();
-            SqlCommand command = new SqlCommand();
-            command.CommandText = $"delete from users where Login = '{a}'";
-            command.Connection = conn.GetConnection();
+                Connect conn = new Connect();
+                SqlCommand command = new SqlCommand();
+                command.CommandText = $"delete from users where login = '{a}'";
+               command.Connection = conn.GetConnection();
 
-            conn.openConnection();
+               conn.openConnection();
 
-            if (command.ExecuteNonQuery() == 1)
-            {
-                conn.closeConnection();
-                return true;
-            }
-            else
-            {
-                conn.openConnection();
-                return false;
-            }
-
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    conn.closeConnection();
+                    return true;
+               }
+                else
+                {
+                    conn.openConnection();
+                   return false;
+               }
         }
         public bool EditUser(string Login, string Password)
         {
@@ -138,18 +138,18 @@ namespace HotelApp2.Classes
                 return false;
             }
         }
-        public bool insertClients1(string name, string lastname, string phone, string adress)
+        public bool insertClients1(string name, string lastname, string phone, string Passport)
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            string insertQuery = "insert into Clients(Name,Surname,Phone,Adress) values  (@n,@s,@p,@a)";
+            string insertQuery = "insert into Clients(Name,Surname,Phone,Passport,Active) values  (@n,@s,@p,@a,'Да')";
             command.CommandText = insertQuery;
             command.Connection = conn.GetConnection();
 
             command.Parameters.Add("@n", SqlDbType.VarChar).Value = name;
             command.Parameters.Add("@s", SqlDbType.VarChar).Value = lastname;
             command.Parameters.Add("@p", SqlDbType.VarChar).Value = phone;
-            command.Parameters.Add("@a", SqlDbType.VarChar).Value = adress;
+            command.Parameters.Add("@a", SqlDbType.VarChar).Value = Passport;
 
             //command.Parameters.Add("", SqlDbType.VarChar).Value=name;
 
@@ -190,11 +190,11 @@ namespace HotelApp2.Classes
             return dataTable;
 
         }
-        public bool EditClient(string Name, string Lastname, string phone, string adress)
+        public bool EditClient(string Name, string Lastname, string phone, string Passport)
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"UPDATE Clients SET Name = '{Name}',Surname='{Lastname}',Phone='{phone}',Adress='{adress}' WHERE Phone = '{phone}'";
+            command.CommandText = $"UPDATE Clients SET Name = '{Name}',Surname='{Lastname}',Phone='{phone}',Passport='{Passport}' WHERE Phone = '{phone}'";
             command.Connection = conn.GetConnection();
 
             conn.openConnection();
@@ -214,7 +214,7 @@ namespace HotelApp2.Classes
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"delete from clients where Phone = '{a}'";
+            command.CommandText = $"UPDATE Clients SET Active = 'Нет' WHERE Phone = '{a}'";
             command.Connection = conn.GetConnection();
 
             conn.openConnection();
@@ -229,15 +229,36 @@ namespace HotelApp2.Classes
                 conn.openConnection();
                 return false;
             }
-
         }
+        //СТАРЫЙ МЕТОД
+        //public bool DellClient(string a)
+        //{
+        //    Connect conn = new Connect();
+        //    SqlCommand command = new SqlCommand();
+        //    command.CommandText = $"delete from clients where Phone = '{a}'";
+        //    command.Connection = conn.GetConnection();
+
+        //    conn.openConnection();
+
+        //    if (command.ExecuteNonQuery() == 1)
+        //    {
+        //        conn.closeConnection();
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        conn.openConnection();
+        //        return false;
+        //    }
+
+        //}
 
         //ROOMS
         public bool insertRooms(string nomer, string type, string phone, string free)
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            string insertQuery = "insert into Nomera (Nomer,Type,Phone,free) values  (@n,@t,@p,@f)";
+            string insertQuery = "insert into Nomera (Nomer,Type,Phone,free,active) values  (@n,@t,@p,@f,'Да')";
             command.CommandText = insertQuery;
             command.Connection = conn.GetConnection();
 
@@ -309,7 +330,7 @@ namespace HotelApp2.Classes
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"delete from Nomera where nomer = '{a}'";
+            command.CommandText = $"UPDATE Nomera SET Active = 'Нет' WHERE Nomer  = '{a}'";
             command.Connection = conn.GetConnection();
 
             conn.openConnection();
@@ -331,7 +352,7 @@ namespace HotelApp2.Classes
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            string insertQuery = "insert into bron ([Type], Room_Number, Client_ID, Bron_IN,Bron_Out) Values (@t,@r,@c,@i,@o)";
+            string insertQuery = "insert into bron ([Type], Room_Number, Client_ID, Bron_IN,Bron_Out,active) Values (@t,@r,@c,@i,@o,'Да')";
             command.CommandText = insertQuery;
             command.Connection = conn.GetConnection();
             
@@ -404,7 +425,7 @@ namespace HotelApp2.Classes
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"delete from Bron where Room_Number = '{a}'";
+            command.CommandText = $"UPDATE Bron SET Active = 'Нет' WHERE Room_Number = '{a}'";
             command.Connection = conn.GetConnection();
 
             conn.openConnection();

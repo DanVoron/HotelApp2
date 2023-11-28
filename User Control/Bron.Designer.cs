@@ -30,6 +30,7 @@
         {
             this.tabControlReservation = new System.Windows.Forms.TabControl();
             this.tabPageAddReservation = new System.Windows.Forms.TabPage();
+            this.textBoxRoomNo = new System.Windows.Forms.TextBox();
             this.dateTimePickerOut = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePickerIn = new System.Windows.Forms.DateTimePicker();
@@ -44,15 +45,17 @@
             this.tabPageSearchReservation = new System.Windows.Forms.TabPage();
             this.dataGridViewReservation = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxSearchClientId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPageUpdateReservation = new System.Windows.Forms.TabPage();
+            this.textBoxRoomNo1 = new System.Windows.Forms.TextBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.dateTimePickerOut1 = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
@@ -65,8 +68,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBoxRoomNo1 = new System.Windows.Forms.TextBox();
-            this.textBoxRoomNo = new System.Windows.Forms.TextBox();
             this.tabControlReservation.SuspendLayout();
             this.tabPageAddReservation.SuspendLayout();
             this.tabPageSearchReservation.SuspendLayout();
@@ -110,6 +111,14 @@
             this.tabPageAddReservation.Text = "Добавить бронь";
             this.tabPageAddReservation.UseVisualStyleBackColor = true;
             this.tabPageAddReservation.Leave += new System.EventHandler(this.tabPageAddReservation_Leave);
+            // 
+            // textBoxRoomNo
+            // 
+            this.textBoxRoomNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxRoomNo.Location = new System.Drawing.Point(484, 89);
+            this.textBoxRoomNo.Name = "textBoxRoomNo";
+            this.textBoxRoomNo.Size = new System.Drawing.Size(278, 28);
+            this.textBoxRoomNo.TabIndex = 32;
             // 
             // dateTimePickerOut
             // 
@@ -261,11 +270,12 @@
             this.dataGridViewReservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReservation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2,
             this.Column3,
             this.Column4,
+            this.Column2,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Active});
             this.dataGridViewReservation.Location = new System.Drawing.Point(64, 92);
             this.dataGridViewReservation.Name = "dataGridViewReservation";
             this.dataGridViewReservation.ReadOnly = true;
@@ -274,27 +284,21 @@
             this.dataGridViewReservation.Size = new System.Drawing.Size(857, 208);
             this.dataGridViewReservation.TabIndex = 13;
             this.dataGridViewReservation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReservation_CellClick);
+            this.dataGridViewReservation.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewReservation_CellFormatting);
             // 
             // Column1
             // 
             this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "ID";
+            this.Column1.HeaderText = "Айди Записи";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Type";
-            this.Column2.HeaderText = "Type";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "Room_Number";
-            this.Column3.HeaderText = "Room No";
+            this.Column3.HeaderText = "Номер комнаты";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -302,15 +306,23 @@
             // Column4
             // 
             this.Column4.DataPropertyName = "Client_ID";
-            this.Column4.HeaderText = "Client_ID";
+            this.Column4.HeaderText = "Айди клиента";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Type";
+            this.Column2.HeaderText = "Тип";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // Column5
             // 
             this.Column5.DataPropertyName = "Bron_IN";
-            this.Column5.HeaderText = "Bron_IN";
+            this.Column5.HeaderText = "Вьезд";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -318,10 +330,18 @@
             // Column6
             // 
             this.Column6.DataPropertyName = "Bron_Out";
-            this.Column6.HeaderText = "Bron_Out";
+            this.Column6.HeaderText = "Выезд";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Актуально?";
+            this.Active.MinimumWidth = 6;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
             // 
             // textBoxSearchClientId
             // 
@@ -378,6 +398,14 @@
             this.tabPageUpdateReservation.Text = "Изменить бронь";
             this.tabPageUpdateReservation.UseVisualStyleBackColor = true;
             this.tabPageUpdateReservation.Leave += new System.EventHandler(this.tabPageUpdateReservation_Leave);
+            // 
+            // textBoxRoomNo1
+            // 
+            this.textBoxRoomNo1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxRoomNo1.Location = new System.Drawing.Point(483, 89);
+            this.textBoxRoomNo1.Name = "textBoxRoomNo1";
+            this.textBoxRoomNo1.Size = new System.Drawing.Size(278, 28);
+            this.textBoxRoomNo1.TabIndex = 45;
             // 
             // buttonDelete
             // 
@@ -518,22 +546,6 @@
             this.label14.TabIndex = 32;
             this.label14.Text = "Изменить бронь:";
             // 
-            // textBoxRoomNo1
-            // 
-            this.textBoxRoomNo1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxRoomNo1.Location = new System.Drawing.Point(483, 89);
-            this.textBoxRoomNo1.Name = "textBoxRoomNo1";
-            this.textBoxRoomNo1.Size = new System.Drawing.Size(278, 28);
-            this.textBoxRoomNo1.TabIndex = 45;
-            // 
-            // textBoxRoomNo
-            // 
-            this.textBoxRoomNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxRoomNo.Location = new System.Drawing.Point(484, 89);
-            this.textBoxRoomNo.Name = "textBoxRoomNo";
-            this.textBoxRoomNo.Size = new System.Drawing.Size(278, 28);
-            this.textBoxRoomNo.TabIndex = 32;
-            // 
             // Bron
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -574,12 +586,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerOut;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridViewReservation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.TextBox textBoxSearchClientId;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -597,5 +603,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBoxRoomNo;
         private System.Windows.Forms.TextBox textBoxRoomNo1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Active;
     }
 }

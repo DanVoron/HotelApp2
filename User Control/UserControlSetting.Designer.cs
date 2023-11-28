@@ -38,9 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchUser = new System.Windows.Forms.TabPage();
             this.dataGridViewUser = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxSearchUsername = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,6 +49,9 @@
             this.textBoxUsername1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlUser.SuspendLayout();
             this.tabPageAddUser.SuspendLayout();
             this.tabPageSearchUser.SuspendLayout();
@@ -192,30 +192,6 @@
             this.dataGridViewUser.TabIndex = 5;
             this.dataGridViewUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUser_CellClick);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "User_ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Login";
-            this.Column2.HeaderText = "Username";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Password";
-            this.Column3.HeaderText = "Password";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
             // textBoxSearchUsername
             // 
             this.textBoxSearchUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -347,6 +323,31 @@
             this.label8.Size = new System.Drawing.Size(288, 19);
             this.label8.TabIndex = 6;
             this.label8.Text = "Изменить данные пользователя:";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "User_ID";
+            this.Column1.HeaderText = "Айди";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Login";
+            this.Column2.HeaderText = "Логин";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Password";
+            this.Column3.HeaderText = "Пароль";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // UserControlSetting
             // 

@@ -33,8 +33,8 @@ namespace HotelApp2.User_Control
         private void buttonAdd_Click(object sender, EventArgs e)
         {
 
-            if(radioButtonNo.Checked) { Free = "Yes"; }
-            if(radioButtonYes.Checked) { Free = "No"; }
+            if(radioButtonNo.Checked) { Free = "Нет"; }
+            if(radioButtonYes.Checked) { Free = "Да"; }
 
 
             if (comboBoxType.SelectedIndex !=-1) // проверяем введён ли логин     
@@ -69,6 +69,7 @@ namespace HotelApp2.User_Control
         {
             
             dataGridViewRoom.DataSource = conn.getRooms();
+            dataGridViewRoom.Sort(dataGridViewRoom.Columns[5], ListSortDirection.Ascending);
         }
 
         private void textBoxSearchRoom_TextChanged(object sender, EventArgs e)
@@ -81,8 +82,8 @@ namespace HotelApp2.User_Control
         {
             
 
-            if (radioButtonNo1.Checked) { Free = "Yes"; }
-            if (radioButtonYes1.Checked) { Free = "No"; }
+            if (radioButtonNo1.Checked) { Free = "Нет"; }
+            if (radioButtonYes1.Checked) { Free = "Да"; }
 
 
             if (comboBoxType1.SelectedIndex != -1) // проверяем введён ли логин     
@@ -158,6 +159,19 @@ namespace HotelApp2.User_Control
                 Free = row.Cells[4].Value.ToString();
                 if (Free == "Yes") { radioButtonYes1.Checked = true; }
                 if (Free == "No") { radioButtonNo1.Checked = true; }
+            }
+        }
+
+        private void dataGridViewRoom_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewRoom.Rows)
+            {
+                if (row.Cells[5].Value.ToString() == "Нет       ")
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.Style.BackColor = Color.DarkGray;
+
+                    }
             }
         }
 

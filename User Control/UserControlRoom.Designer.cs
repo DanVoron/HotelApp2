@@ -48,6 +48,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxSearchRoom = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -164,10 +165,11 @@
             this.comboBoxType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Items.AddRange(new object[] {
-            "Single",
-            "Double",
-            "Family",
-            "Suite"});
+            "Одиночная",
+            "Двойная",
+            "Семейная",
+            "Люкс",
+            "Делюкс"});
             this.comboBoxType.Location = new System.Drawing.Point(89, 129);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(278, 29);
@@ -260,7 +262,8 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Active});
             this.dataGridViewRoom.Location = new System.Drawing.Point(63, 91);
             this.dataGridViewRoom.Name = "dataGridViewRoom";
             this.dataGridViewRoom.ReadOnly = true;
@@ -269,6 +272,7 @@
             this.dataGridViewRoom.Size = new System.Drawing.Size(857, 224);
             this.dataGridViewRoom.TabIndex = 9;
             this.dataGridViewRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRoom_CellClick);
+            this.dataGridViewRoom.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewRoom_CellFormatting);
             // 
             // ID
             // 
@@ -277,11 +281,12 @@
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // Column1
             // 
             this.Column1.DataPropertyName = "Nomer";
-            this.Column1.HeaderText = "No.";
+            this.Column1.HeaderText = "Номер";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -289,7 +294,7 @@
             // Column2
             // 
             this.Column2.DataPropertyName = "Type";
-            this.Column2.HeaderText = "Type";
+            this.Column2.HeaderText = "Тип";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -297,7 +302,7 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "Phone";
-            this.Column3.HeaderText = "Phone";
+            this.Column3.HeaderText = "Телефон";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -305,10 +310,18 @@
             // Column4
             // 
             this.Column4.DataPropertyName = "Free";
-            this.Column4.HeaderText = "Free?";
+            this.Column4.HeaderText = "Свободно?";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Актуален";
+            this.Active.MinimumWidth = 6;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
             // 
             // textBoxSearchRoom
             // 
@@ -440,10 +453,11 @@
             this.comboBoxType1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxType1.FormattingEnabled = true;
             this.comboBoxType1.Items.AddRange(new object[] {
-            "Single",
-            "Double",
-            "Family",
-            "Suite"});
+            "Одиночная",
+            "Двойная",
+            "Семейная",
+            "Люкс",
+            "Делюкс"});
             this.comboBoxType1.Location = new System.Drawing.Point(89, 129);
             this.comboBoxType1.Name = "comboBoxType1";
             this.comboBoxType1.Size = new System.Drawing.Size(278, 29);
@@ -567,5 +581,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Active;
     }
 }

@@ -65,6 +65,7 @@ namespace HotelApp2.User_Control
         private void tabPageSearchReservation_Enter(object sender, EventArgs e)
         {
             dataGridViewReservation.DataSource = conn.getBron();
+            dataGridViewReservation.Sort(dataGridViewReservation.Columns[6], ListSortDirection.Ascending);
         }
 
         private void textBoxSearchClientId_TextChanged(object sender, EventArgs e)
@@ -141,6 +142,19 @@ namespace HotelApp2.User_Control
             }
         }
 
+        private void dataGridViewReservation_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewReservation.Rows)
+            {
+                if (row.Cells[6].Value.ToString() == "Нет       ")
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.Style.BackColor = Color.DarkGray;
+
+                    }
+            }
+            
+        }
         public void Clear1()
         {
             textBoxRoomNo1.Clear();

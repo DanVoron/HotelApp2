@@ -42,10 +42,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchClient = new System.Windows.Forms.TabPage();
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxSearchPhone = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.textBoxAdress1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxPhone1 = new System.Windows.Forms.TextBox();
@@ -56,12 +63,6 @@
             this.textBoxFirstName1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlClient.SuspendLayout();
             this.tabPageAddClient.SuspendLayout();
             this.tabPageSearchClient.SuspendLayout();
@@ -106,10 +107,9 @@
             // textBoxAdress
             // 
             this.textBoxAdress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxAdress.Location = new System.Drawing.Point(483, 166);
-            this.textBoxAdress.Multiline = true;
+            this.textBoxAdress.Location = new System.Drawing.Point(483, 163);
             this.textBoxAdress.Name = "textBoxAdress";
-            this.textBoxAdress.Size = new System.Drawing.Size(342, 102);
+            this.textBoxAdress.Size = new System.Drawing.Size(278, 28);
             this.textBoxAdress.TabIndex = 15;
             // 
             // label5
@@ -119,9 +119,9 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(479, 141);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 19);
+            this.label5.Size = new System.Drawing.Size(84, 19);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Адресс";
+            this.label5.Text = "Паспорт";
             // 
             // textBoxPhoneNumb
             // 
@@ -237,7 +237,8 @@
             this.Column2,
             this.Column3,
             this.Phone,
-            this.Adress});
+            this.Adress,
+            this.Active});
             this.dataGridViewClient.Location = new System.Drawing.Point(60, 91);
             this.dataGridViewClient.Name = "dataGridViewClient";
             this.dataGridViewClient.ReadOnly = true;
@@ -246,6 +247,56 @@
             this.dataGridViewClient.Size = new System.Drawing.Size(857, 224);
             this.dataGridViewClient.TabIndex = 9;
             this.dataGridViewClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClient_CellClick);
+            this.dataGridViewClient.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewClient_CellFormatting);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = "Имя";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Surname";
+            this.Column3.HeaderText = "Фамилия";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Phone
+            // 
+            this.Phone.DataPropertyName = "Phone";
+            this.Phone.HeaderText = "Телефон";
+            this.Phone.MinimumWidth = 6;
+            this.Phone.Name = "Phone";
+            this.Phone.ReadOnly = true;
+            // 
+            // Adress
+            // 
+            this.Adress.DataPropertyName = "Passport";
+            this.Adress.HeaderText = "Паспорт";
+            this.Adress.MinimumWidth = 6;
+            this.Adress.Name = "Adress";
+            this.Adress.ReadOnly = true;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Актуально?";
+            this.Active.MinimumWidth = 6;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
             // 
             // textBoxSearchPhone
             // 
@@ -300,13 +351,29 @@
             this.tabPage1.Text = "Изменить";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(88)))), ((int)(((byte)(74)))));
+            this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Location = new System.Drawing.Point(297, 216);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(125, 52);
+            this.buttonDelete.TabIndex = 26;
+            this.buttonDelete.Text = "Удалить";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // textBoxAdress1
             // 
             this.textBoxAdress1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxAdress1.Location = new System.Drawing.Point(481, 166);
+            this.textBoxAdress1.Location = new System.Drawing.Point(481, 163);
             this.textBoxAdress1.Multiline = true;
             this.textBoxAdress1.Name = "textBoxAdress1";
-            this.textBoxAdress1.Size = new System.Drawing.Size(342, 102);
+            this.textBoxAdress1.Size = new System.Drawing.Size(278, 28);
             this.textBoxAdress1.TabIndex = 25;
             // 
             // label8
@@ -316,9 +383,9 @@
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(477, 141);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 19);
+            this.label8.Size = new System.Drawing.Size(84, 19);
             this.label8.TabIndex = 24;
-            this.label8.Text = "Адресс";
+            this.label8.Text = "Паспорт";
             // 
             // textBoxPhone1
             // 
@@ -405,62 +472,6 @@
             this.label12.TabIndex = 16;
             this.label12.Text = "Добавить клиента:";
             // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(88)))), ((int)(((byte)(74)))));
-            this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDelete.FlatAppearance.BorderSize = 0;
-            this.buttonDelete.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(297, 216);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(125, 52);
-            this.buttonDelete.TabIndex = 26;
-            this.buttonDelete.Text = "Удалить";
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Name";
-            this.Column2.HeaderText = "Name";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Surname";
-            this.Column3.HeaderText = "Surname";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Phone
-            // 
-            this.Phone.DataPropertyName = "Phone";
-            this.Phone.HeaderText = "Phone";
-            this.Phone.MinimumWidth = 6;
-            this.Phone.Name = "Phone";
-            this.Phone.ReadOnly = true;
-            // 
-            // Adress
-            // 
-            this.Adress.DataPropertyName = "Adress";
-            this.Adress.HeaderText = "Adress";
-            this.Adress.MinimumWidth = 6;
-            this.Adress.Name = "Adress";
-            this.Adress.ReadOnly = true;
-            // 
             // UserControlClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -519,5 +530,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Active;
     }
 }
