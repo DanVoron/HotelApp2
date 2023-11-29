@@ -70,7 +70,7 @@ namespace HotelApp2.User_Control
                 {             // ищем в базе данных пользователя с такими данными         
                     try
                     {
-                       if(conn.insertClients(textBoxUsername.Text, textBoxPassword.Text))
+                       if(conn.insertClients(textBoxUsername.Text, textBoxPassword.Text, comboBoxRoles.SelectedItem.ToString()))
                         MessageBox.Show("Пользлватель добавлен успешно");
                         Clear();
                     }
@@ -88,7 +88,7 @@ namespace HotelApp2.User_Control
         {
             try
             {
-                if (conn.EditUser(textBoxUsername1.Text,textBoxPassword1.Text))
+                if (conn.EditUser(textBoxUsername1.Text,textBoxPassword1.Text, comboBoxRoles1.SelectedItem.ToString()))
                 {
                     MessageBox.Show("Успешно изменён");
                 }
@@ -111,6 +111,7 @@ namespace HotelApp2.User_Control
                 ID = row.Cells[0].Value.ToString();
                 textBoxUsername1.Text = row.Cells[1].Value.ToString();
                 textBoxPassword1.Text = row.Cells[2].Value.ToString();
+                comboBoxRoles1.Text = row.Cells[3].Value.ToString();
             }
         }
 

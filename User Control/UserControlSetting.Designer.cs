@@ -49,9 +49,14 @@
             this.textBoxUsername1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBoxRoles = new System.Windows.Forms.ComboBox();
+            this.comboBoxRoles1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlUser.SuspendLayout();
             this.tabPageAddUser.SuspendLayout();
             this.tabPageSearchUser.SuspendLayout();
@@ -74,6 +79,8 @@
             // 
             // tabPageAddUser
             // 
+            this.tabPageAddUser.Controls.Add(this.comboBoxRoles);
+            this.tabPageAddUser.Controls.Add(this.label9);
             this.tabPageAddUser.Controls.Add(this.buttonAdd);
             this.tabPageAddUser.Controls.Add(this.textBoxPassword);
             this.tabPageAddUser.Controls.Add(this.label3);
@@ -182,7 +189,8 @@
             this.dataGridViewUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column4});
             this.dataGridViewUser.Location = new System.Drawing.Point(64, 95);
             this.dataGridViewUser.Name = "dataGridViewUser";
             this.dataGridViewUser.ReadOnly = true;
@@ -226,6 +234,8 @@
             // 
             // tabPageUpdateAndDeleteUser
             // 
+            this.tabPageUpdateAndDeleteUser.Controls.Add(this.comboBoxRoles1);
+            this.tabPageUpdateAndDeleteUser.Controls.Add(this.label10);
             this.tabPageUpdateAndDeleteUser.Controls.Add(this.buttonDelete);
             this.tabPageUpdateAndDeleteUser.Controls.Add(this.buttonUpdate);
             this.tabPageUpdateAndDeleteUser.Controls.Add(this.textBoxPassword1);
@@ -324,6 +334,58 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Изменить данные пользователя:";
             // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(556, 185);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 19);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Роль";
+            // 
+            // comboBoxRoles
+            // 
+            this.comboBoxRoles.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxRoles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxRoles.FormattingEnabled = true;
+            this.comboBoxRoles.Items.AddRange(new object[] {
+            "Сотрудник",
+            "Менеджер",
+            "Админ"});
+            this.comboBoxRoles.Location = new System.Drawing.Point(560, 209);
+            this.comboBoxRoles.Name = "comboBoxRoles";
+            this.comboBoxRoles.Size = new System.Drawing.Size(278, 29);
+            this.comboBoxRoles.TabIndex = 13;
+            // 
+            // comboBoxRoles1
+            // 
+            this.comboBoxRoles1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxRoles1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxRoles1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxRoles1.FormattingEnabled = true;
+            this.comboBoxRoles1.Items.AddRange(new object[] {
+            "Сотрудник",
+            "Менеджер",
+            "Админ"});
+            this.comboBoxRoles1.Location = new System.Drawing.Point(563, 209);
+            this.comboBoxRoles1.Name = "comboBoxRoles1";
+            this.comboBoxRoles1.Size = new System.Drawing.Size(278, 29);
+            this.comboBoxRoles1.TabIndex = 15;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(559, 185);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 19);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Роль";
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "User_ID";
@@ -348,6 +410,14 @@
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Roles";
+            this.Column4.HeaderText = "Роли";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // UserControlSetting
             // 
@@ -394,8 +464,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBoxRoles;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.ComboBox comboBoxRoles1;
+        private System.Windows.Forms.Label label10;
     }
 }

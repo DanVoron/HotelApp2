@@ -50,12 +50,12 @@
             this.linkLabel1LogOut = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.userControlDashBoard1 = new HotelApp2.User_Control.UserControlDashBoard();
             this.bron1 = new HotelApp2.User_Control.Bron();
             this.userControlRoom1 = new HotelApp2.User_Control.UserControlRoom();
             this.userControlClients1 = new HotelApp2.User_Control.UserControlClients();
             this.userControlSetting1 = new HotelApp2.User_Control.UserControlSetting();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -117,7 +117,7 @@
             this.buttonReservation.ForeColor = System.Drawing.Color.White;
             this.buttonReservation.Image = global::HotelApp2.Properties.Resources.grommet_icons_book;
             this.buttonReservation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReservation.Location = new System.Drawing.Point(50, 379);
+            this.buttonReservation.Location = new System.Drawing.Point(50, 315);
             this.buttonReservation.Name = "buttonReservation";
             this.buttonReservation.Size = new System.Drawing.Size(284, 58);
             this.buttonReservation.TabIndex = 4;
@@ -153,7 +153,7 @@
             this.buttonRoom.ForeColor = System.Drawing.Color.White;
             this.buttonRoom.Image = global::HotelApp2.Properties.Resources.material_symbols_meeting_room;
             this.buttonRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRoom.Location = new System.Drawing.Point(50, 315);
+            this.buttonRoom.Location = new System.Drawing.Point(50, 379);
             this.buttonRoom.Name = "buttonRoom";
             this.buttonRoom.Size = new System.Drawing.Size(284, 58);
             this.buttonRoom.TabIndex = 3;
@@ -330,6 +330,10 @@
             this.panel6.Size = new System.Drawing.Size(1032, 488);
             this.panel6.TabIndex = 0;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // userControlDashBoard1
             // 
             this.userControlDashBoard1.BackColor = System.Drawing.Color.White;
@@ -388,10 +392,6 @@
             this.userControlSetting1.Size = new System.Drawing.Size(1032, 488);
             this.userControlSetting1.TabIndex = 0;
             this.userControlSetting1.Visible = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FromDashboard
             // 

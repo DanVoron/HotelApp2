@@ -165,10 +165,11 @@
             this.comboBoxType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Items.AddRange(new object[] {
-            "Single",
-            "Double",
-            "Family",
-            "Suite"});
+            "Одиночная",
+            "Двойная",
+            "Семейная",
+            "Люкс",
+            "Делюкс"});
             this.comboBoxType.Location = new System.Drawing.Point(88, 89);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(278, 29);
@@ -468,10 +469,11 @@
             this.comboBoxType1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxType1.FormattingEnabled = true;
             this.comboBoxType1.Items.AddRange(new object[] {
-            "Single",
-            "Double",
-            "Family",
-            "Suite"});
+            "Одиночная",
+            "Двойная",
+            "Семейная",
+            "Люкс",
+            "Делюкс"});
             this.comboBoxType1.Location = new System.Drawing.Point(87, 88);
             this.comboBoxType1.Name = "comboBoxType1";
             this.comboBoxType1.Size = new System.Drawing.Size(278, 29);

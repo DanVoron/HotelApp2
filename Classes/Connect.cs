@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Windows.Forms;
 using System.Drawing;
+using HotelApp2.DB;
 
 namespace HotelApp2.Classes
 {
@@ -47,16 +48,13 @@ namespace HotelApp2.Classes
         }
         
      
-        public bool insertClients(string name, string lastname)
+        public bool insertClients(string name, string lastname, string roles)
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            string insertQuery = "insert into Users (Login,Password,Active) values  (@n,@s,'Да')";
+            string insertQuery = $"insert into Users (Login,Password,Roles) values  ('{name}','{lastname}','{roles}')";
             command.CommandText = insertQuery;
             command.Connection = conn.GetConnection();
-
-            command.Parameters.Add("@n", SqlDbType.VarChar).Value = name;
-            command.Parameters.Add("@s", SqlDbType.VarChar).Value = lastname;
 
             //command.Parameters.Add("", SqlDbType.VarChar).Value=name;
 
@@ -118,11 +116,11 @@ namespace HotelApp2.Classes
                    return false;
                }
         }
-        public bool EditUser(string Login, string Password)
+        public bool EditUser(string Login, string Password, string roles)
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"UPDATE Users SET Password = '{Password}'WHERE Login = '{Login}'";
+            command.CommandText = $"UPDATE Users SET Password = '{Password}' , Roles = '{roles}' WHERE Login = '{Login}'";
             command.Connection = conn.GetConnection();
 
             conn.openConnection();
@@ -465,6 +463,35 @@ namespace HotelApp2.Classes
                 return null;
             }
         }
+
+
+        public string ProverkaRoli(string a)
+        {
+            string name = null;
+            string gg = "";
+            SqlDataReader _reader = null;
+            Connect conn = new Connect();
+            SqlCommand command = new SqlCommand();
+            command.CommandText = $"SELECT Roles FROM[dbo].[Users] WHERE[Login] = '{a}'";
+            command.Connection = conn.GetConnection();
+
+            conn.openConnection();
+            _reader = command.ExecuteReader();
+            if (_reader != null)
+            {
+                while (_reader.Read())
+                {
+                    name = _reader[0] as string;
+                    //break for single row or you can continue if you have multiple rows...
+                    return name;
+
+                }
+            }
+            return null;
+        }
+      
+
+        
     }
 
 }

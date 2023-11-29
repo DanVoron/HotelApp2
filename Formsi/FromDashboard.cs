@@ -1,4 +1,5 @@
-﻿using HotelApp2.User_Control;
+﻿using HotelApp2.Classes;
+using HotelApp2.User_Control;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace HotelApp2.Formsi
 {
     public partial class FromDashboard : Form
     {
+        Connect conn = new Connect();
         public string username;
         public FromDashboard()
         {
@@ -72,12 +74,21 @@ namespace HotelApp2.Formsi
 
         private void buttonRoom_Click(object sender, EventArgs e)
         {
-            MovePanel(buttonRoom);
-            userControlSetting1.Hide();
-            userControlClients1.Hide();
-            bron1.Hide();
-            userControlDashBoard1.Hide();
-            userControlRoom1.Show();
+            string proverk = conn.ProverkaRoli(username);
+            if (proverk == "Админ"|| proverk == "Менеджер")
+            {
+                MovePanel(buttonRoom);
+                userControlSetting1.Hide();
+                userControlClients1.Hide();
+                bron1.Hide();
+                userControlDashBoard1.Hide();
+                userControlRoom1.Show();
+            }
+            else
+            {
+                MessageBox.Show("Недостаточно прав");
+            }
+
         }
 
         private void buttonReservation_Click(object sender, EventArgs e)
@@ -92,13 +103,14 @@ namespace HotelApp2.Formsi
 
         private void buttonSetting_Click(object sender, EventArgs e)
         {
-            MovePanel(buttonSetting);
-            userControlClients1.Hide();
-            userControlRoom1.Hide();
-            bron1.Hide();
-            userControlDashBoard1.Hide();
-            if (username == "Admin")
+            string proverk = conn.ProverkaRoli(username);
+            if (proverk == "Админ")
             {
+                MovePanel(buttonSetting);
+                userControlClients1.Hide();
+                userControlRoom1.Hide();
+                bron1.Hide();
+                userControlDashBoard1.Hide();
                 userControlSetting1.Clear();
                 userControlSetting1.Show();
             }
@@ -106,6 +118,7 @@ namespace HotelApp2.Formsi
             {
                 MessageBox.Show("Недостаточно прав");
             }
+            
         }
     }
 }
