@@ -1,4 +1,5 @@
 ﻿using HotelApp2.Classes;
+using HotelApp2.DB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,20 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using HotelApp2.Formsi;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HotelApp2.User_Control
 {
     public partial class UserControlClients : UserControl
     {
+        Connect conn = new Connect();
         private string ID = "";
+        string username;
+
         public UserControlClients()
         {
             InitializeComponent();
-
-        }
-        Connect conn = new Connect();
-        private void textBoxSearchUsername_TextChanged(object sender, EventArgs e)
-        {
 
         }
         private void Clear()
@@ -59,18 +61,22 @@ namespace HotelApp2.User_Control
                     {
                         if (textBoxAdress.Text.Length > 0)
                         {
-                            try
+                            if (checkBox1.Checked)
                             {
-                                if (conn.insertClients1(textBoxFirstName.Text, textBoxLastName.Text, textBoxPhoneNumb.Text, textBoxAdress.Text))
-                                    MessageBox.Show("Клиент добавлен успешно");
-                                Clear();
+                                try
+                                {
+                                    if (conn.insertClients1(textBoxFirstName.Text, textBoxLastName.Text, textBoxPhoneNumb.Text, textBoxAdress.Text))
+                                        MessageBox.Show("Клиент добавлен успешно");
+                                    Clear();
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Ошбика");
+                                }
                             }
-                            catch
-                            {
-                                MessageBox.Show("Ошбика");
-                            }
+                            else MessageBox.Show("Потдвердите согласие на обработку личных данных");
                         }
-                        else MessageBox.Show("Введите адресс");
+                        else MessageBox.Show("Введите паспорт");
                     }
                     else MessageBox.Show("Введите телефон");
                 }
@@ -90,6 +96,7 @@ namespace HotelApp2.User_Control
             Connect conn = new Connect();
             dataGridViewClient.DataSource = conn.getClients();
             dataGridViewClient.Sort(dataGridViewClient.Columns[5], ListSortDirection.Ascending);
+            
         }
 
         private void tabPageSearchClient_Leave(object sender, EventArgs e)
@@ -158,7 +165,16 @@ namespace HotelApp2.User_Control
 
         private void dataGridViewClient_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            
+            
+            string proverk = conn.ProverkaRoli(username);
 
+            if (proverk == "Админ")
+            {
+                dataGridViewClient.Columns["Паспорт"].Visible = true;
+
+            }
+            
             foreach (DataGridViewRow row in dataGridViewClient.Rows)
             {
                 if (row.Cells[5].Value.ToString() == "Нет       ")
@@ -175,5 +191,6 @@ namespace HotelApp2.User_Control
                 //    }
             }
         }
+
     }
 }

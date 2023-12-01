@@ -50,12 +50,12 @@
             this.linkLabel1LogOut = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.userControlDashBoard1 = new HotelApp2.User_Control.UserControlDashBoard();
             this.bron1 = new HotelApp2.User_Control.Bron();
             this.userControlRoom1 = new HotelApp2.User_Control.UserControlRoom();
             this.userControlClients1 = new HotelApp2.User_Control.UserControlClients();
             this.userControlSetting1 = new HotelApp2.User_Control.UserControlSetting();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -330,10 +330,6 @@
             this.panel6.Size = new System.Drawing.Size(1032, 488);
             this.panel6.TabIndex = 0;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // userControlDashBoard1
             // 
             this.userControlDashBoard1.BackColor = System.Drawing.Color.White;
@@ -392,6 +388,10 @@
             this.userControlSetting1.Size = new System.Drawing.Size(1032, 488);
             this.userControlSetting1.TabIndex = 0;
             this.userControlSetting1.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FromDashboard
             // 

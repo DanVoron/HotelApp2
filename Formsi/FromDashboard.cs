@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HotelApp2.Formsi
 {
@@ -16,6 +17,7 @@ namespace HotelApp2.Formsi
     {
         Connect conn = new Connect();
         public string username;
+        
         public FromDashboard()
         {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace HotelApp2.Formsi
                 timer1.Stop();
                 this.Close();
             }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -47,6 +50,7 @@ namespace HotelApp2.Formsi
         {
             timer1.Start();
             labelUsername.Text = username;
+            
         }
 
         private void buttonDashBoard_Click(object sender, EventArgs e)
@@ -70,6 +74,7 @@ namespace HotelApp2.Formsi
             userControlRoom1.Hide();
             userControlDashBoard1.Hide();
             userControlClients1.Show();
+            
         }
 
         private void buttonRoom_Click(object sender, EventArgs e)

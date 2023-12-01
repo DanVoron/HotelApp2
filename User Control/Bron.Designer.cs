@@ -30,13 +30,13 @@
         {
             this.tabControlReservation = new System.Windows.Forms.TabControl();
             this.tabPageAddReservation = new System.Windows.Forms.TabPage();
-            this.textBoxRoomNo = new System.Windows.Forms.TextBox();
+            this.comboBoxClientID = new System.Windows.Forms.ComboBox();
+            this.comboBoxRoomNu = new System.Windows.Forms.ComboBox();
             this.dateTimePickerOut = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePickerIn = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
-            this.textBoxClientID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,14 +55,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPageUpdateReservation = new System.Windows.Forms.TabPage();
-            this.textBoxRoomNo1 = new System.Windows.Forms.TextBox();
+            this.comboBoxClientID1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxRoomNu1 = new System.Windows.Forms.ComboBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.dateTimePickerOut1 = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePickerIn1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBoxType1 = new System.Windows.Forms.ComboBox();
-            this.textBoxClientID1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -90,13 +90,13 @@
             // 
             // tabPageAddReservation
             // 
-            this.tabPageAddReservation.Controls.Add(this.textBoxRoomNo);
+            this.tabPageAddReservation.Controls.Add(this.comboBoxClientID);
+            this.tabPageAddReservation.Controls.Add(this.comboBoxRoomNu);
             this.tabPageAddReservation.Controls.Add(this.dateTimePickerOut);
             this.tabPageAddReservation.Controls.Add(this.label6);
             this.tabPageAddReservation.Controls.Add(this.dateTimePickerIn);
             this.tabPageAddReservation.Controls.Add(this.label5);
             this.tabPageAddReservation.Controls.Add(this.comboBoxType);
-            this.tabPageAddReservation.Controls.Add(this.textBoxClientID);
             this.tabPageAddReservation.Controls.Add(this.label4);
             this.tabPageAddReservation.Controls.Add(this.buttonAdd);
             this.tabPageAddReservation.Controls.Add(this.label3);
@@ -110,15 +110,30 @@
             this.tabPageAddReservation.TabIndex = 0;
             this.tabPageAddReservation.Text = "Добавить бронь";
             this.tabPageAddReservation.UseVisualStyleBackColor = true;
+            this.tabPageAddReservation.Enter += new System.EventHandler(this.tabPageAddReservation_Enter);
             this.tabPageAddReservation.Leave += new System.EventHandler(this.tabPageAddReservation_Leave);
             // 
-            // textBoxRoomNo
+            // comboBoxClientID
             // 
-            this.textBoxRoomNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxRoomNo.Location = new System.Drawing.Point(484, 89);
-            this.textBoxRoomNo.Name = "textBoxRoomNo";
-            this.textBoxRoomNo.Size = new System.Drawing.Size(278, 28);
-            this.textBoxRoomNo.TabIndex = 32;
+            this.comboBoxClientID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxClientID.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxClientID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxClientID.FormattingEnabled = true;
+            this.comboBoxClientID.Location = new System.Drawing.Point(88, 164);
+            this.comboBoxClientID.Name = "comboBoxClientID";
+            this.comboBoxClientID.Size = new System.Drawing.Size(278, 29);
+            this.comboBoxClientID.TabIndex = 34;
+            // 
+            // comboBoxRoomNu
+            // 
+            this.comboBoxRoomNu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxRoomNu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxRoomNu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxRoomNu.FormattingEnabled = true;
+            this.comboBoxRoomNu.Location = new System.Drawing.Point(484, 89);
+            this.comboBoxRoomNu.Name = "comboBoxRoomNu";
+            this.comboBoxRoomNu.Size = new System.Drawing.Size(278, 29);
+            this.comboBoxRoomNu.TabIndex = 33;
             // 
             // dateTimePickerOut
             // 
@@ -174,14 +189,6 @@
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(278, 29);
             this.comboBoxType.TabIndex = 26;
-            // 
-            // textBoxClientID
-            // 
-            this.textBoxClientID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxClientID.Location = new System.Drawing.Point(88, 156);
-            this.textBoxClientID.Name = "textBoxClientID";
-            this.textBoxClientID.Size = new System.Drawing.Size(278, 28);
-            this.textBoxClientID.TabIndex = 23;
             // 
             // label4
             // 
@@ -378,14 +385,14 @@
             // 
             // tabPageUpdateReservation
             // 
-            this.tabPageUpdateReservation.Controls.Add(this.textBoxRoomNo1);
+            this.tabPageUpdateReservation.Controls.Add(this.comboBoxClientID1);
+            this.tabPageUpdateReservation.Controls.Add(this.comboBoxRoomNu1);
             this.tabPageUpdateReservation.Controls.Add(this.buttonDelete);
             this.tabPageUpdateReservation.Controls.Add(this.dateTimePickerOut1);
             this.tabPageUpdateReservation.Controls.Add(this.label9);
             this.tabPageUpdateReservation.Controls.Add(this.dateTimePickerIn1);
             this.tabPageUpdateReservation.Controls.Add(this.label10);
             this.tabPageUpdateReservation.Controls.Add(this.comboBoxType1);
-            this.tabPageUpdateReservation.Controls.Add(this.textBoxClientID1);
             this.tabPageUpdateReservation.Controls.Add(this.label11);
             this.tabPageUpdateReservation.Controls.Add(this.buttonEdit);
             this.tabPageUpdateReservation.Controls.Add(this.label12);
@@ -398,15 +405,42 @@
             this.tabPageUpdateReservation.TabIndex = 2;
             this.tabPageUpdateReservation.Text = "Изменить бронь";
             this.tabPageUpdateReservation.UseVisualStyleBackColor = true;
+            this.tabPageUpdateReservation.Enter += new System.EventHandler(this.tabPageUpdateReservation_Enter);
             this.tabPageUpdateReservation.Leave += new System.EventHandler(this.tabPageUpdateReservation_Leave);
             // 
-            // textBoxRoomNo1
+            // comboBoxClientID1
             // 
-            this.textBoxRoomNo1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxRoomNo1.Location = new System.Drawing.Point(483, 89);
-            this.textBoxRoomNo1.Name = "textBoxRoomNo1";
-            this.textBoxRoomNo1.Size = new System.Drawing.Size(278, 28);
-            this.textBoxRoomNo1.TabIndex = 45;
+            this.comboBoxClientID1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxClientID1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxClientID1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxClientID1.FormattingEnabled = true;
+            this.comboBoxClientID1.Items.AddRange(new object[] {
+            "Одиночная",
+            "Двойная",
+            "Семейная",
+            "Люкс",
+            "Делюкс"});
+            this.comboBoxClientID1.Location = new System.Drawing.Point(87, 160);
+            this.comboBoxClientID1.Name = "comboBoxClientID1";
+            this.comboBoxClientID1.Size = new System.Drawing.Size(278, 29);
+            this.comboBoxClientID1.TabIndex = 46;
+            // 
+            // comboBoxRoomNu1
+            // 
+            this.comboBoxRoomNu1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxRoomNu1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxRoomNu1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxRoomNu1.FormattingEnabled = true;
+            this.comboBoxRoomNu1.Items.AddRange(new object[] {
+            "Одиночная",
+            "Двойная",
+            "Семейная",
+            "Люкс",
+            "Делюкс"});
+            this.comboBoxRoomNu1.Location = new System.Drawing.Point(483, 88);
+            this.comboBoxRoomNu1.Name = "comboBoxRoomNu1";
+            this.comboBoxRoomNu1.Size = new System.Drawing.Size(278, 29);
+            this.comboBoxRoomNu1.TabIndex = 45;
             // 
             // buttonDelete
             // 
@@ -478,14 +512,6 @@
             this.comboBoxType1.Name = "comboBoxType1";
             this.comboBoxType1.Size = new System.Drawing.Size(278, 29);
             this.comboBoxType1.TabIndex = 38;
-            // 
-            // textBoxClientID1
-            // 
-            this.textBoxClientID1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxClientID1.Location = new System.Drawing.Point(87, 155);
-            this.textBoxClientID1.Name = "textBoxClientID1";
-            this.textBoxClientID1.Size = new System.Drawing.Size(278, 28);
-            this.textBoxClientID1.TabIndex = 37;
             // 
             // label11
             // 
@@ -576,7 +602,6 @@
         private System.Windows.Forms.TabPage tabPageAddReservation;
         private System.Windows.Forms.TabPage tabPageSearchReservation;
         private System.Windows.Forms.TabPage tabPageUpdateReservation;
-        private System.Windows.Forms.TextBox textBoxClientID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label label3;
@@ -597,14 +622,11 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerIn1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBoxType1;
-        private System.Windows.Forms.TextBox textBoxClientID1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBoxRoomNo;
-        private System.Windows.Forms.TextBox textBoxRoomNo1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -612,5 +634,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Active;
+        private System.Windows.Forms.ComboBox comboBoxRoomNu;
+        
+        private System.Windows.Forms.ComboBox comboBoxClientID;
+        private System.Windows.Forms.ComboBox comboBoxClientID1;
+        private System.Windows.Forms.ComboBox comboBoxRoomNu1;
     }
 }

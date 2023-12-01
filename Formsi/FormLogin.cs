@@ -11,18 +11,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelApp2.Classes;
 using HotelApp2.Formsi;
+using HotelApp2.User_Control;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HotelApp2
 {
     public partial class FormLogin : Form
     {
-        Connect db;
+        Connect db = new Connect();
         public FormLogin()
         {
             InitializeComponent();
-            db = new Connect();
+            
         }
-
+        public string usergg
+        {
+            get { return textBoxUsername.Text; }
+        }
         private void pictureBoxMinimize_MouseHover(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(pictureBoxMinimize, "Свернуть");
@@ -92,11 +97,14 @@ namespace HotelApp2
                     DataTable dt_user = Select($"SELECT * FROM [dbo].[Users] WHERE [Login] = '{textBoxUsername.Text}' AND [Password] = '{textBoxUsername.Text}'");
                     if (dt_user.Rows.Count > 0) // если такая запись существует       
                     {
+                        
                         FromDashboard fd = new FromDashboard();
                         fd.username = textBoxUsername.Text;
+                        db.username = usergg;
                         textBoxUsername.Clear();
                         textBoxPassword.Clear();
                         fd.Show();
+
                     }
                     else MessageBox.Show("Пользователя не найден"); // выводим ошибку  
                 }

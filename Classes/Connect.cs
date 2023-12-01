@@ -14,7 +14,8 @@ namespace HotelApp2.Classes
 {
     internal class Connect
     {
-        
+        public string username;
+
         private SqlConnection connection = new SqlConnection("Data Source=HOME-PC\\GGEZ;Initial Catalog=ConceptHotel;Integrated Security=True");
         public SqlConnection GetConnection()
         {
@@ -350,16 +351,9 @@ namespace HotelApp2.Classes
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            string insertQuery = "insert into bron ([Type], Room_Number, Client_ID, Bron_IN,Bron_Out,active) Values (@t,@r,@c,@i,@o,'Да')";
+            string insertQuery = $"insert into bron ([Type], Room_Number,Client_ID, Bron_IN,Bron_Out,active) Values ('{type}','{RoomNo}','{ClientID}','{datetimein}','{datetimeout}','Да')";
             command.CommandText = insertQuery;
             command.Connection = conn.GetConnection();
-            
-            command.Parameters.Add("@t", SqlDbType.VarChar).Value = type;
-            command.Parameters.Add("@r", SqlDbType.VarChar).Value = RoomNo;
-            command.Parameters.Add("@c", SqlDbType.VarChar).Value = ClientID;
-            command.Parameters.Add("@i", SqlDbType.VarChar).Value = datetimein;
-            command.Parameters.Add("@o", SqlDbType.VarChar).Value = datetimeout;
-
             //command.Parameters.Add("", SqlDbType.VarChar).Value=name;
 
             conn.openConnection();
@@ -374,6 +368,18 @@ namespace HotelApp2.Classes
                 conn.openConnection();
                 return false;
             }
+        }
+        public DataTable UpdateNomer(string RoomNo)
+        {
+            Connect conn = new Connect();
+            SqlCommand command = new SqlCommand($"update nomera set free ='нет' where Nomer = '{RoomNo}'", conn.GetConnection());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.SelectCommand = command;
+            adapter.Fill(dataTable);
+
+            return dataTable;
+
         }
         public DataTable getBron()
         {
@@ -440,6 +446,54 @@ namespace HotelApp2.Classes
             }
 
         }
+        public DataTable SearchRoomsInBron()
+        {
+            Connect conn = new Connect();
+            SqlCommand command = new SqlCommand($"Select * from Nomera nomer where free = 'Да'", conn.GetConnection());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.SelectCommand = command;
+            adapter.Fill(dataTable);
+
+            return dataTable;
+
+        }
+        public DataTable SearchClientsIDInBron()
+        {
+            Connect conn = new Connect();
+            SqlCommand command = new SqlCommand($"Select ID from Clients  where Active = 'Да'", conn.GetConnection());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.SelectCommand = command;
+            adapter.Fill(dataTable);
+
+            return dataTable;
+
+        }
+        public DataTable SearchRoomsInBron1()
+        {
+            Connect conn = new Connect();
+            SqlCommand command = new SqlCommand($"Select * from Nomera nomer where free = 'Нет'", conn.GetConnection());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.SelectCommand = command;
+            adapter.Fill(dataTable);
+
+            return dataTable;
+
+        }
+        public DataTable SearchClientsIDInBron1()
+        {
+            Connect conn = new Connect();
+            SqlCommand command = new SqlCommand($"Select * from Clients  where Active = 'Нет'", conn.GetConnection());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.SelectCommand = command;
+            adapter.Fill(dataTable);
+
+            return dataTable;
+
+        }
         //dashboard
         public string Count(string a)
         {
@@ -467,9 +521,8 @@ namespace HotelApp2.Classes
 
         public string ProverkaRoli(string a)
         {
-            string name = null;
-            string gg = "";
-            SqlDataReader _reader = null;
+            string name;
+            SqlDataReader _reader;
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
             command.CommandText = $"SELECT Roles FROM[dbo].[Users] WHERE[Login] = '{a}'";
@@ -487,7 +540,7 @@ namespace HotelApp2.Classes
 
                 }
             }
-            return null;
+            return "ошибка роли";
         }
       
 

@@ -30,6 +30,7 @@
         {
             this.tabControlClient = new System.Windows.Forms.TabControl();
             this.tabPageAddClient = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBoxAdress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxPhoneNumb = new System.Windows.Forms.TextBox();
@@ -41,12 +42,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchClient = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxSearchPhone = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -85,6 +87,7 @@
             // 
             // tabPageAddClient
             // 
+            this.tabPageAddClient.Controls.Add(this.checkBox1);
             this.tabPageAddClient.Controls.Add(this.textBoxAdress);
             this.tabPageAddClient.Controls.Add(this.label5);
             this.tabPageAddClient.Controls.Add(this.textBoxPhoneNumb);
@@ -103,6 +106,16 @@
             this.tabPageAddClient.Text = "Добавить клиента";
             this.tabPageAddClient.UseVisualStyleBackColor = true;
             this.tabPageAddClient.Leave += new System.EventHandler(this.tabPageAddClient_Leave);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(483, 216);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(392, 46);
+            this.checkBox1.TabIndex = 16;
+            this.checkBox1.Text = "Клиент подписал согласие на обработку \r\nперсональных данных";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBoxAdress
             // 
@@ -210,6 +223,7 @@
             // 
             // tabPageSearchClient
             // 
+            this.tabPageSearchClient.Controls.Add(this.label13);
             this.tabPageSearchClient.Controls.Add(this.dataGridViewClient);
             this.tabPageSearchClient.Controls.Add(this.textBoxSearchPhone);
             this.tabPageSearchClient.Controls.Add(this.label6);
@@ -224,6 +238,15 @@
             this.tabPageSearchClient.Enter += new System.EventHandler(this.tabPageSearchClient_Enter);
             this.tabPageSearchClient.Leave += new System.EventHandler(this.tabPageSearchClient_Leave);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(755, 19);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 21);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "label13";
+            // 
             // dataGridViewClient
             // 
             this.dataGridViewClient.AllowUserToAddRows = false;
@@ -237,7 +260,7 @@
             this.Column2,
             this.Column3,
             this.Phone,
-            this.Adress,
+            this.Passport,
             this.Active});
             this.dataGridViewClient.Location = new System.Drawing.Point(60, 91);
             this.dataGridViewClient.Name = "dataGridViewClient";
@@ -282,13 +305,14 @@
             this.Phone.Name = "Phone";
             this.Phone.ReadOnly = true;
             // 
-            // Adress
+            // Passport
             // 
-            this.Adress.DataPropertyName = "Passport";
-            this.Adress.HeaderText = "Паспорт";
-            this.Adress.MinimumWidth = 6;
-            this.Adress.Name = "Adress";
-            this.Adress.ReadOnly = true;
+            this.Passport.DataPropertyName = "Passport";
+            this.Passport.HeaderText = "Паспорт";
+            this.Passport.MinimumWidth = 6;
+            this.Passport.Name = "Passport";
+            this.Passport.ReadOnly = true;
+            this.Passport.Visible = false;
             // 
             // Active
             // 
@@ -468,9 +492,9 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(198)))), ((int)(((byte)(218)))));
             this.label12.Location = new System.Drawing.Point(4, 3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(171, 19);
+            this.label12.Size = new System.Drawing.Size(170, 19);
             this.label12.TabIndex = 16;
-            this.label12.Text = "Добавить клиента:";
+            this.label12.Text = "Изменить клиента:";
             // 
             // UserControlClients
             // 
@@ -525,11 +549,13 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Adress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Passport;
         private System.Windows.Forms.DataGridViewTextBoxColumn Active;
+        private System.Windows.Forms.Label label13;
     }
 }

@@ -21,12 +21,11 @@ namespace HotelApp2.User_Control
         }
         public void Clear()
         {
-            textBoxRoomNo.Clear();
+            comboBoxRoomNu.SelectedIndex = -1;
             comboBoxType.SelectedIndex = -1;
-            textBoxClientID.Clear();
+            comboBoxClientID.SelectedIndex = -1;
             dateTimePickerIn.Value = DateTime.Now;
             dateTimePickerOut.Value = DateTime.Now;
-            tabControlReservation.SelectedTab = tabPageAddReservation;
         }
 
         private void tabPageAddReservation_Leave(object sender, EventArgs e)
@@ -40,20 +39,21 @@ namespace HotelApp2.User_Control
 
             if (comboBoxType.SelectedIndex != -1) // проверяем введён ли логин     
             {
-                if (textBoxRoomNo.Text.Length>0) // проверяем введён ли пароль         
-                {             // ищем в базе данных пользователя с такими данными         
-                    if (textBoxClientID.Text.Length > 0)
+                if (comboBoxRoomNu.SelectedIndex != -1) // проверяем введён ли пароль         
+                {             // ищем в базе данных пользователя с такими данными        //comboBoxClientID  
+                    if (comboBoxClientID.SelectedIndex != -1)
                     {
-                            try
-                            {
-                                if (conn.insertBron(comboBoxType.SelectedItem.ToString(), textBoxRoomNo.Text, textBoxClientID.Text,dateTimePickerIn.Text,dateTimePickerOut.Text))
-                                    MessageBox.Show("Бронь добавлена успешно");
+
+                        if (conn.insertBron(comboBoxType.SelectedItem.ToString(), comboBoxRoomNu.SelectedValue.ToString(), comboBoxClientID.SelectedValue.ToString(), dateTimePickerIn.Text, dateTimePickerOut.Text))
+                            conn.UpdateNomer(comboBoxRoomNu.SelectedValue.ToString());
+                                MessageBox.Show("Бронь добавлена успешно");
                                 Clear();
-                            }
-                            catch
-                            {
-                                MessageBox.Show("Ошбика");
-                            }      
+                            //}
+                            //catch
+                            //{
+                            
+                            //MessageBox.Show(e.ToString());
+                            //}      
                     }
                     else MessageBox.Show("Введите айди клиента");
                 }
@@ -77,13 +77,13 @@ namespace HotelApp2.User_Control
         {
             if (comboBoxType1.SelectedIndex != -1) // проверяем введён ли логин     
             {
-                if (textBoxRoomNo1.Text.Length>0) // проверяем введён ли пароль         
+                if (comboBoxClientID1.SelectedIndex != -1) // проверяем введён ли пароль         
                 {             // ищем в базе данных пользователя с такими данными         
-                    if (textBoxClientID1.Text.Length > 0)
+                    if (comboBoxRoomNu1.SelectedIndex != -1)
                     {
                         try
                         {
-                            if (conn.EditBron(comboBoxType1.SelectedItem.ToString(), textBoxRoomNo1.Text, textBoxClientID1.Text, dateTimePickerIn1.Text, dateTimePickerOut1.Text))
+                            if (conn.EditBron(comboBoxType1.SelectedItem.ToString(), comboBoxRoomNu1.SelectedIndex.ToString(), comboBoxClientID1.SelectedIndex.ToString(), dateTimePickerIn1.Text, dateTimePickerOut1.Text))
                                 MessageBox.Show("Бронь изменена успешно");
                             Clear();
                         }
@@ -103,7 +103,7 @@ namespace HotelApp2.User_Control
         {
             try
             {
-                if (conn.DellBron(textBoxRoomNo1.Text))
+                if (conn.DellBron(comboBoxClientID1.SelectedItem.ToString()))
                 {
                     MessageBox.Show("Успешно удалено");
                 }
@@ -134,8 +134,8 @@ namespace HotelApp2.User_Control
             {
                 DataGridViewRow row = dataGridViewReservation.Rows[e.RowIndex];
                 comboBoxType1.Text = row.Cells[1].Value.ToString();
-                textBoxRoomNo1.Text = row.Cells[2].Value.ToString();
-                textBoxClientID1.Text = row.Cells[3].Value.ToString();
+                comboBoxRoomNu1.Text = row.Cells[2].Value.ToString();
+                comboBoxClientID1.Text = row.Cells[3].Value.ToString();
                 dateTimePickerIn1.Text = row.Cells[4].Value.ToString();
                 dateTimePickerOut1.Text = row.Cells[5].Value.ToString();
 
@@ -155,11 +155,35 @@ namespace HotelApp2.User_Control
             }
             
         }
+
+        private void tabPageAddReservation_Enter(object sender, EventArgs e)
+        {
+            comboBoxRoomNu.DisplayMember = "nomer";
+            comboBoxRoomNu.ValueMember = "nomer";
+            comboBoxRoomNu.DataSource = conn.SearchRoomsInBron();
+
+            comboBoxClientID.DisplayMember = "ID";
+            comboBoxClientID.ValueMember = "ID";
+            comboBoxClientID.DataSource = conn.SearchClientsIDInBron();
+
+        }
+
+        private void tabPageUpdateReservation_Enter(object sender, EventArgs e)
+        {
+            comboBoxRoomNu1.DisplayMember = "nomer";
+            comboBoxRoomNu1.ValueMember = "nomer";
+            comboBoxRoomNu1.DataSource = conn.SearchRoomsInBron1();
+
+            comboBoxClientID1.DisplayMember = "ID";
+            comboBoxClientID1.ValueMember = "ID";
+            comboBoxClientID1.DataSource = conn.SearchClientsIDInBron1();
+        }
+
         public void Clear1()
         {
-            textBoxRoomNo1.Clear();
+            comboBoxRoomNu1.SelectedIndex = -1;
             comboBoxType1.SelectedIndex = -1;
-            textBoxClientID1.Clear();
+            comboBoxClientID1.SelectedIndex = -1;
             dateTimePickerIn1.Value = DateTime.Now;
             dateTimePickerOut1.Value = DateTime.Now;
             RID = "";
