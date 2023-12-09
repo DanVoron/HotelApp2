@@ -36,11 +36,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePickerIn = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchReservation = new System.Windows.Forms.TabPage();
             this.dataGridViewReservation = new System.Windows.Forms.DataGridView();
@@ -62,11 +60,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePickerIn1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBoxType1 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.tabControlReservation.SuspendLayout();
             this.tabPageAddReservation.SuspendLayout();
@@ -96,11 +92,9 @@
             this.tabPageAddReservation.Controls.Add(this.label6);
             this.tabPageAddReservation.Controls.Add(this.dateTimePickerIn);
             this.tabPageAddReservation.Controls.Add(this.label5);
-            this.tabPageAddReservation.Controls.Add(this.comboBoxType);
             this.tabPageAddReservation.Controls.Add(this.label4);
             this.tabPageAddReservation.Controls.Add(this.buttonAdd);
             this.tabPageAddReservation.Controls.Add(this.label3);
-            this.tabPageAddReservation.Controls.Add(this.label2);
             this.tabPageAddReservation.Controls.Add(this.label1);
             this.tabPageAddReservation.Location = new System.Drawing.Point(4, 4);
             this.tabPageAddReservation.Margin = new System.Windows.Forms.Padding(4);
@@ -130,7 +124,7 @@
             this.comboBoxRoomNu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxRoomNu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxRoomNu.FormattingEnabled = true;
-            this.comboBoxRoomNu.Location = new System.Drawing.Point(484, 89);
+            this.comboBoxRoomNu.Location = new System.Drawing.Point(88, 77);
             this.comboBoxRoomNu.Name = "comboBoxRoomNu";
             this.comboBoxRoomNu.Size = new System.Drawing.Size(278, 29);
             this.comboBoxRoomNu.TabIndex = 33;
@@ -138,7 +132,7 @@
             // dateTimePickerOut
             // 
             this.dateTimePickerOut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePickerOut.Location = new System.Drawing.Point(484, 244);
+            this.dateTimePickerOut.Location = new System.Drawing.Point(470, 161);
             this.dateTimePickerOut.Name = "dateTimePickerOut";
             this.dateTimePickerOut.Size = new System.Drawing.Size(278, 28);
             this.dateTimePickerOut.TabIndex = 31;
@@ -148,7 +142,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(480, 214);
+            this.label6.Location = new System.Drawing.Point(466, 131);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 19);
             this.label6.TabIndex = 30;
@@ -157,7 +151,7 @@
             // dateTimePickerIn
             // 
             this.dateTimePickerIn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePickerIn.Location = new System.Drawing.Point(484, 161);
+            this.dateTimePickerIn.Location = new System.Drawing.Point(470, 78);
             this.dateTimePickerIn.Name = "dateTimePickerIn";
             this.dateTimePickerIn.Size = new System.Drawing.Size(278, 28);
             this.dateTimePickerIn.TabIndex = 29;
@@ -167,28 +161,11 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(480, 131);
+            this.label5.Location = new System.Drawing.Point(466, 48);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 19);
             this.label5.TabIndex = 28;
             this.label5.Text = "Вьезд";
-            // 
-            // comboBoxType
-            // 
-            this.comboBoxType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxType.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Items.AddRange(new object[] {
-            "Одиночная",
-            "Двойная",
-            "Семейная",
-            "Люкс",
-            "Делюкс"});
-            this.comboBoxType.Location = new System.Drawing.Point(88, 89);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(278, 29);
-            this.comboBoxType.TabIndex = 26;
             // 
             // label4
             // 
@@ -222,22 +199,11 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(480, 67);
+            this.label3.Location = new System.Drawing.Point(84, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 19);
             this.label3.TabIndex = 19;
             this.label3.Text = "Номер комнаты";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(84, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 19);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Тип комнаты";
             // 
             // label1
             // 
@@ -392,11 +358,9 @@
             this.tabPageUpdateReservation.Controls.Add(this.label9);
             this.tabPageUpdateReservation.Controls.Add(this.dateTimePickerIn1);
             this.tabPageUpdateReservation.Controls.Add(this.label10);
-            this.tabPageUpdateReservation.Controls.Add(this.comboBoxType1);
             this.tabPageUpdateReservation.Controls.Add(this.label11);
             this.tabPageUpdateReservation.Controls.Add(this.buttonEdit);
             this.tabPageUpdateReservation.Controls.Add(this.label12);
-            this.tabPageUpdateReservation.Controls.Add(this.label13);
             this.tabPageUpdateReservation.Controls.Add(this.label14);
             this.tabPageUpdateReservation.Location = new System.Drawing.Point(4, 4);
             this.tabPageUpdateReservation.Name = "tabPageUpdateReservation";
@@ -437,7 +401,7 @@
             "Семейная",
             "Люкс",
             "Делюкс"});
-            this.comboBoxRoomNu1.Location = new System.Drawing.Point(483, 88);
+            this.comboBoxRoomNu1.Location = new System.Drawing.Point(87, 77);
             this.comboBoxRoomNu1.Name = "comboBoxRoomNu1";
             this.comboBoxRoomNu1.Size = new System.Drawing.Size(278, 29);
             this.comboBoxRoomNu1.TabIndex = 45;
@@ -461,7 +425,7 @@
             // dateTimePickerOut1
             // 
             this.dateTimePickerOut1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePickerOut1.Location = new System.Drawing.Point(483, 243);
+            this.dateTimePickerOut1.Location = new System.Drawing.Point(491, 161);
             this.dateTimePickerOut1.Name = "dateTimePickerOut1";
             this.dateTimePickerOut1.Size = new System.Drawing.Size(278, 28);
             this.dateTimePickerOut1.TabIndex = 43;
@@ -471,7 +435,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(479, 213);
+            this.label9.Location = new System.Drawing.Point(487, 131);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(62, 19);
             this.label9.TabIndex = 42;
@@ -480,7 +444,7 @@
             // dateTimePickerIn1
             // 
             this.dateTimePickerIn1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePickerIn1.Location = new System.Drawing.Point(483, 160);
+            this.dateTimePickerIn1.Location = new System.Drawing.Point(491, 78);
             this.dateTimePickerIn1.Name = "dateTimePickerIn1";
             this.dateTimePickerIn1.Size = new System.Drawing.Size(278, 28);
             this.dateTimePickerIn1.TabIndex = 41;
@@ -490,28 +454,11 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(479, 130);
+            this.label10.Location = new System.Drawing.Point(487, 48);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 19);
             this.label10.TabIndex = 40;
             this.label10.Text = "Вьезд";
-            // 
-            // comboBoxType1
-            // 
-            this.comboBoxType1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxType1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxType1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxType1.FormattingEnabled = true;
-            this.comboBoxType1.Items.AddRange(new object[] {
-            "Одиночная",
-            "Двойная",
-            "Семейная",
-            "Люкс",
-            "Делюкс"});
-            this.comboBoxType1.Location = new System.Drawing.Point(87, 88);
-            this.comboBoxType1.Name = "comboBoxType1";
-            this.comboBoxType1.Size = new System.Drawing.Size(278, 29);
-            this.comboBoxType1.TabIndex = 38;
             // 
             // label11
             // 
@@ -545,22 +492,11 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(479, 66);
+            this.label12.Location = new System.Drawing.Point(83, 55);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(148, 19);
             this.label12.TabIndex = 34;
             this.label12.Text = "Номер комнаты";
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(83, 66);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(117, 19);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "Тип комнаты";
             // 
             // label14
             // 
@@ -605,11 +541,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePickerIn;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.DateTimePicker dateTimePickerOut;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridViewReservation;
@@ -621,11 +555,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dateTimePickerIn1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBoxType1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

@@ -347,11 +347,11 @@ namespace HotelApp2.Classes
 
         }
         //BRON
-        public bool insertBron(string type, string RoomNo, string ClientID, string datetimein, string datetimeout)
+        public bool insertBron( string RoomNo, string ClientID, string datetimein, string datetimeout)
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            string insertQuery = $"insert into bron ([Type], Room_Number,Client_ID, Bron_IN,Bron_Out,active) Values ('{type}','{RoomNo}','{ClientID}','{datetimein}','{datetimeout}','Да')";
+            string insertQuery = $"insert into bron (Room_Number,Client_ID, Bron_IN,Bron_Out,active) Values ('{RoomNo}','{ClientID}','{datetimein}','{datetimeout}','Да')";
             command.CommandText = insertQuery;
             command.Connection = conn.GetConnection();
             //command.Parameters.Add("", SqlDbType.VarChar).Value=name;
@@ -405,11 +405,11 @@ namespace HotelApp2.Classes
             return dataTable;
 
         }
-        public bool EditBron(string type, string RoomNo, string ClientID, string datetimein, string datetimeout)
+        public bool EditBron( string RoomNo, string ClientID, string datetimein, string datetimeout)
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"UPDATE Bron SET type='{type}', Room_Number = '{RoomNo}',Client_ID='{ClientID}',Bron_IN='{datetimein}',Bron_Out='{datetimeout}' WHERE Room_Number = '{RoomNo}'";
+            command.CommandText = $"UPDATE Bron SET  Room_Number = '{RoomNo}',Client_ID='{ClientID}',Bron_IN='{datetimein}',Bron_Out='{datetimeout}' WHERE Room_Number = '{RoomNo}'";
             command.Connection = conn.GetConnection();
 
             conn.openConnection();
@@ -425,16 +425,20 @@ namespace HotelApp2.Classes
                 return false;
             }
         }
-        public bool DellBron(string a)
+        public bool DellBron(string RoomNo)
         {
+           
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"UPDATE Bron SET Active = 'Нет' WHERE Room_Number = '{a}'";
+            SqlCommand command2 = new SqlCommand();
+            command.CommandText = $"UPDATE Bron SET Active = 'Нет' WHERE Room_Number = '{RoomNo}'";
+            command2.CommandText = $"UPDATE Nomera SET Free = 'Да' WHERE Nomer = '{RoomNo}'";
             command.Connection = conn.GetConnection();
+            command2.Connection = conn.GetConnection();
 
             conn.openConnection();
 
-            if (command.ExecuteNonQuery() == 1)
+            if (command.ExecuteNonQuery() == 1 && command2.ExecuteNonQuery() == 1)
             {
                 conn.closeConnection();
                 return true;
@@ -473,7 +477,7 @@ namespace HotelApp2.Classes
         public DataTable SearchRoomsInBron1()
         {
             Connect conn = new Connect();
-            SqlCommand command = new SqlCommand($"Select * from Nomera nomer where free = 'Нет'", conn.GetConnection());
+            SqlCommand command = new SqlCommand($"Select * from Nomera nomer where free = 'Нет' AND active = 'Да'", conn.GetConnection());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.SelectCommand = command;
@@ -485,7 +489,7 @@ namespace HotelApp2.Classes
         public DataTable SearchClientsIDInBron1()
         {
             Connect conn = new Connect();
-            SqlCommand command = new SqlCommand($"Select * from Clients  where Active = 'Нет'", conn.GetConnection());
+            SqlCommand command = new SqlCommand($"Select * from Clients  where Active = 'Да'", conn.GetConnection());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable dataTable = new DataTable();
             adapter.SelectCommand = command;
