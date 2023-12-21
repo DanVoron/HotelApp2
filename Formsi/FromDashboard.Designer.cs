@@ -40,8 +40,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelUsername = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,14 +54,16 @@
             this.userControlClients1 = new HotelApp2.User_Control.UserControlClients();
             this.userControlSetting1 = new HotelApp2.User_Control.UserControlSetting();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel6.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -211,25 +211,6 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(334, 669);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1032, 51);
-            this.panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Даниил Воронин ИС 222/1 27.11.23";
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(198)))), ((int)(((byte)(218)))));
@@ -327,7 +308,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(334, 181);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1032, 488);
+            this.panel6.Size = new System.Drawing.Size(1032, 487);
             this.panel6.TabIndex = 0;
             // 
             // userControlDashBoard1
@@ -338,7 +319,7 @@
             this.userControlDashBoard1.Location = new System.Drawing.Point(0, 0);
             this.userControlDashBoard1.Margin = new System.Windows.Forms.Padding(4);
             this.userControlDashBoard1.Name = "userControlDashBoard1";
-            this.userControlDashBoard1.Size = new System.Drawing.Size(1032, 488);
+            this.userControlDashBoard1.Size = new System.Drawing.Size(1032, 487);
             this.userControlDashBoard1.TabIndex = 0;
             // 
             // bron1
@@ -349,7 +330,7 @@
             this.bron1.Location = new System.Drawing.Point(0, 0);
             this.bron1.Margin = new System.Windows.Forms.Padding(4);
             this.bron1.Name = "bron1";
-            this.bron1.Size = new System.Drawing.Size(1032, 488);
+            this.bron1.Size = new System.Drawing.Size(1032, 487);
             this.bron1.TabIndex = 0;
             this.bron1.Visible = false;
             // 
@@ -361,7 +342,7 @@
             this.userControlRoom1.Location = new System.Drawing.Point(0, 0);
             this.userControlRoom1.Margin = new System.Windows.Forms.Padding(4);
             this.userControlRoom1.Name = "userControlRoom1";
-            this.userControlRoom1.Size = new System.Drawing.Size(1032, 488);
+            this.userControlRoom1.Size = new System.Drawing.Size(1032, 487);
             this.userControlRoom1.TabIndex = 0;
             this.userControlRoom1.Visible = false;
             // 
@@ -373,7 +354,7 @@
             this.userControlClients1.Location = new System.Drawing.Point(0, 0);
             this.userControlClients1.Margin = new System.Windows.Forms.Padding(4);
             this.userControlClients1.Name = "userControlClients1";
-            this.userControlClients1.Size = new System.Drawing.Size(1032, 488);
+            this.userControlClients1.Size = new System.Drawing.Size(1032, 487);
             this.userControlClients1.TabIndex = 0;
             this.userControlClients1.Visible = false;
             // 
@@ -385,13 +366,32 @@
             this.userControlSetting1.Location = new System.Drawing.Point(0, 0);
             this.userControlSetting1.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetting1.Name = "userControlSetting1";
-            this.userControlSetting1.Size = new System.Drawing.Size(1032, 488);
+            this.userControlSetting1.Size = new System.Drawing.Size(1032, 487);
             this.userControlSetting1.TabIndex = 0;
             this.userControlSetting1.Visible = false;
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Location = new System.Drawing.Point(0, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Даниил Воронин ИС 222/1 27.11.23";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(334, 668);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1032, 52);
+            this.panel2.TabIndex = 1;
             // 
             // FromDashboard
             // 
@@ -416,14 +416,14 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel6.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -431,11 +431,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel linkLabel1LogOut;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -456,5 +454,7 @@
         private User_Control.UserControlRoom userControlRoom1;
         private User_Control.Bron bron1;
         private User_Control.UserControlDashBoard userControlDashBoard1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

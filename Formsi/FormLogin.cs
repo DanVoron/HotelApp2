@@ -24,10 +24,7 @@ namespace HotelApp2
             InitializeComponent();
             
         }
-        public string usergg
-        {
-            get { return textBoxUsername.Text; }
-        }
+
         private void pictureBoxMinimize_MouseHover(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(pictureBoxMinimize, "Свернуть");
@@ -97,10 +94,8 @@ namespace HotelApp2
                     DataTable dt_user = Select($"SELECT * FROM [dbo].[Users] WHERE [Login] = '{textBoxUsername.Text}' AND [Password] = '{textBoxUsername.Text}'");
                     if (dt_user.Rows.Count > 0) // если такая запись существует       
                     {
-                        
                         FromDashboard fd = new FromDashboard();
                         fd.username = textBoxUsername.Text;
-                        db.username = usergg;
                         textBoxUsername.Clear();
                         textBoxPassword.Clear();
                         fd.Show();

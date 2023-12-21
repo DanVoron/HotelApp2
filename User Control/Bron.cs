@@ -70,26 +70,30 @@ namespace HotelApp2.User_Control
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-                if (comboBoxClientID1.SelectedIndex != -1) // проверяем введён ли пароль         
-                {             // ищем в базе данных пользователя с такими данными         
-                    if (comboBoxRoomNu1.SelectedIndex != -1)
+            if (comboBoxClientID1.SelectedIndex != -1)         
+            {                  
+                if (comboBoxRoomNu1.SelectedIndex != -1)
+                {
+                    try
                     {
-                        try
+                        if (conn.EditBron(comboBoxRoomNu1.SelectedValue.ToString(), comboBoxClientID1.SelectedValue.ToString(), dateTimePickerIn1.Text, dateTimePickerOut1.Text))
                         {
-                            if (conn.EditBron(comboBoxRoomNu1.SelectedValue.ToString(), comboBoxClientID1.SelectedValue.ToString(), dateTimePickerIn1.Text, dateTimePickerOut1.Text))
-                            {
-                                    MessageBox.Show("Бронь изменена успешно");
-                                    Clear();
+                            MessageBox.Show("Бронь изменена успешно");
+
                         }
-                        }
-                        catch
+                        else
                         {
-                            MessageBox.Show("Error lol");
+                            MessageBox.Show("Ошибка ввода");
                         }
                     }
-                    else MessageBox.Show("Введите айди клиента");
+                    catch
+                    {
+                        MessageBox.Show("Error lol");
+                    }
                 }
-                else MessageBox.Show("Введите номер комнаты"); // выводим ошибку    
+                else MessageBox.Show("Введите айди клиента");
+            }
+            else MessageBox.Show("Введите номер комнаты"); // выводим ошибку    
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -149,7 +153,7 @@ namespace HotelApp2.User_Control
         }
 
         private void tabPageAddReservation_Enter(object sender, EventArgs e)
-        {
+        { 
             comboBoxRoomNu.DisplayMember = "nomer";
             comboBoxRoomNu.ValueMember = "nomer";
             comboBoxRoomNu.DataSource = conn.SearchRoomsInBron();

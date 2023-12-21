@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using HotelApp2.Formsi;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+//ПРИВЕТ ДАЙ ПЖ ЮЗЕРНЕЙМ
+//KYS
 
 namespace HotelApp2.User_Control
 {
@@ -19,7 +21,7 @@ namespace HotelApp2.User_Control
     {
         Connect conn = new Connect();
         private string ID = "";
-        string username;
+        
 
         public UserControlClients()
         {
@@ -96,7 +98,8 @@ namespace HotelApp2.User_Control
             Connect conn = new Connect();
             dataGridViewClient.DataSource = conn.getClients();
             dataGridViewClient.Sort(dataGridViewClient.Columns[5], ListSortDirection.Ascending);
-            
+
+
         }
 
         private void tabPageSearchClient_Leave(object sender, EventArgs e)
@@ -167,7 +170,7 @@ namespace HotelApp2.User_Control
         {
             
             
-            string proverk = conn.ProverkaRoli(username);
+            string proverk = conn.ProverkaRoli("gay");
 
             if (proverk == "Админ")
             {

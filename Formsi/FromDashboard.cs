@@ -17,7 +17,7 @@ namespace HotelApp2.Formsi
     {
         Connect conn = new Connect();
         public string username;
-        
+
         public FromDashboard()
         {
             InitializeComponent();
@@ -25,20 +25,20 @@ namespace HotelApp2.Formsi
 
         private void MovePanel(Control btn)
         {
-            panelSlide.Top= btn.Top;
-            panelSlide.Height=btn.Height;   
+            panelSlide.Top = btn.Top;
+            panelSlide.Height = btn.Height;
         }
 
         private void linkLabel1LogOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
-            DialogResult result = MessageBox.Show("Вы действительно хотите выйти?","Выйти", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Вы действительно хотите выйти?", "Выйти", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (DialogResult.Yes == result)
             {
                 timer1.Stop();
                 this.Close();
             }
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -48,10 +48,15 @@ namespace HotelApp2.Formsi
 
         private void FromDashboard_Load(object sender, EventArgs e)
         {
+            Connect conn = new Connect();
             timer1.Start();
             labelUsername.Text = username;
-            
+
         }
+        public string getuser()
+        {
+            return username;
+        } 
 
         private void buttonDashBoard_Click(object sender, EventArgs e)
         {

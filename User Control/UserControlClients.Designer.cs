@@ -42,8 +42,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearchClient = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxSearchPhone = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,12 +64,6 @@
             this.textBoxFirstName1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlClient.SuspendLayout();
             this.tabPageAddClient.SuspendLayout();
             this.tabPageSearchClient.SuspendLayout();
@@ -223,7 +222,6 @@
             // 
             // tabPageSearchClient
             // 
-            this.tabPageSearchClient.Controls.Add(this.label13);
             this.tabPageSearchClient.Controls.Add(this.dataGridViewClient);
             this.tabPageSearchClient.Controls.Add(this.textBoxSearchPhone);
             this.tabPageSearchClient.Controls.Add(this.label6);
@@ -237,15 +235,6 @@
             this.tabPageSearchClient.UseVisualStyleBackColor = true;
             this.tabPageSearchClient.Enter += new System.EventHandler(this.tabPageSearchClient_Enter);
             this.tabPageSearchClient.Leave += new System.EventHandler(this.tabPageSearchClient_Leave);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(755, 19);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 21);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "label13";
             // 
             // dataGridViewClient
             // 
@@ -271,6 +260,55 @@
             this.dataGridViewClient.TabIndex = 9;
             this.dataGridViewClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClient_CellClick);
             this.dataGridViewClient.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewClient_CellFormatting);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ID";
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = "Имя";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Surname";
+            this.Column3.HeaderText = "Фамилия";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Phone
+            // 
+            this.Phone.DataPropertyName = "Phone";
+            this.Phone.HeaderText = "Телефон";
+            this.Phone.MinimumWidth = 6;
+            this.Phone.Name = "Phone";
+            this.Phone.ReadOnly = true;
+            // 
+            // Passport
+            // 
+            this.Passport.DataPropertyName = "Passport";
+            this.Passport.HeaderText = "Паспорт";
+            this.Passport.MinimumWidth = 6;
+            this.Passport.Name = "Passport";
+            this.Passport.ReadOnly = true;
+            this.Passport.Visible = false;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Актуально?";
+            this.Active.MinimumWidth = 6;
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
             // 
             // textBoxSearchPhone
             // 
@@ -446,55 +484,6 @@
             this.label12.TabIndex = 16;
             this.label12.Text = "Изменить клиента:";
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Name";
-            this.Column2.HeaderText = "Имя";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Surname";
-            this.Column3.HeaderText = "Фамилия";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Phone
-            // 
-            this.Phone.DataPropertyName = "Phone";
-            this.Phone.HeaderText = "Телефон";
-            this.Phone.MinimumWidth = 6;
-            this.Phone.Name = "Phone";
-            this.Phone.ReadOnly = true;
-            // 
-            // Passport
-            // 
-            this.Passport.DataPropertyName = "Passport";
-            this.Passport.HeaderText = "Паспорт";
-            this.Passport.MinimumWidth = 6;
-            this.Passport.Name = "Passport";
-            this.Passport.ReadOnly = true;
-            this.Passport.Visible = false;
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.HeaderText = "Актуально?";
-            this.Active.MinimumWidth = 6;
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
-            // 
             // UserControlClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -549,7 +538,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

@@ -14,7 +14,6 @@ namespace HotelApp2.Classes
 {
     internal class Connect
     {
-        public string username;
 
         private SqlConnection connection = new SqlConnection("Data Source=HOME-PC\\GGEZ;Initial Catalog=ConceptHotel;Integrated Security=True");
         public SqlConnection GetConnection()
@@ -405,16 +404,19 @@ namespace HotelApp2.Classes
             return dataTable;
 
         }
-        public bool EditBron( string RoomNo, string ClientID, string datetimein, string datetimeout)
+        public bool EditBron(string RoomNo, string ClientID, string datetimein, string datetimeout)
         {
             Connect conn = new Connect();
             SqlCommand command = new SqlCommand();
-            command.CommandText = $"UPDATE Bron SET  Room_Number = '{RoomNo}',Client_ID='{ClientID}',Bron_IN='{datetimein}',Bron_Out='{datetimeout}' WHERE Room_Number = '{RoomNo}'";
+            string gg = $"UPDATE Bron SET  Room_Number = '{RoomNo}',Client_ID='{ClientID}',Bron_IN='{datetimein}',Bron_Out='{datetimeout}' WHERE Room_Number = '{RoomNo}'";
+            command.CommandText = gg;
+               
             command.Connection = conn.GetConnection();
-
+            
             conn.openConnection();
+        
 
-            if (command.ExecuteNonQuery() == 1)
+            if (command.ExecuteNonQuery() > 0)
             {
                 conn.closeConnection();
                 return true;
@@ -422,6 +424,7 @@ namespace HotelApp2.Classes
             else
             {
                 conn.openConnection();
+                MessageBox.Show($"{RoomNo},{ClientID},{datetimein},{datetimeout}");
                 return false;
             }
         }
@@ -438,7 +441,7 @@ namespace HotelApp2.Classes
 
             conn.openConnection();
 
-            if (command.ExecuteNonQuery() == 1 && command2.ExecuteNonQuery() == 1)
+            if (command.ExecuteNonQuery() > 0 && command2.ExecuteNonQuery() > 0)
             {
                 conn.closeConnection();
                 return true;

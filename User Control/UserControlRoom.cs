@@ -27,7 +27,6 @@ namespace HotelApp2.User_Control
             textBoxPhone.Clear();
             radioButtonYes.Checked = false;
             radioButtonNo.Checked = false;
-            tabControlRoom.SelectedTab = tabPageAddRoom;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)

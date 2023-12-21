@@ -155,6 +155,7 @@
             // 
             this.buttonLogIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(198)))), ((int)(((byte)(218)))));
+            this.buttonLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogIn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonLogIn.ForeColor = System.Drawing.Color.White;
             this.buttonLogIn.Location = new System.Drawing.Point(73, 283);
@@ -261,12 +262,12 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonLogIn;
-        private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxShow;
         private System.Windows.Forms.PictureBox pictureBoxHide;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBoxUsername;
     }
 }
 
