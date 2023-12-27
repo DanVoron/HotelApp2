@@ -216,6 +216,7 @@
       <LastGenOutput>HotelDB.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
+    <Content Include="hotelappDB.sql" />
     <None Include="Resources\material-symbols_bedroom-parent-outline.png" />
     <None Include="Resources\pepicons-pop_people-circle.png" />
     <None Include="Resources\heroicons_user-group.png" />

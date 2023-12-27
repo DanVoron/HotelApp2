@@ -68,31 +68,31 @@ namespace HotelApp2
             textBoxPassword.UseSystemPasswordChar = true;
             pictureBoxShow.Show();
         }
-        public DataTable Select(string selectSQL) //метод для подключения БД
+        public DataTable Select(string selectSQL) 
         {
-            DataTable dataTable = new DataTable("dataBase"); //новую таблу создаём
+            DataTable dataTable = new DataTable("dataBase"); 
             SqlConnection sqlConnection = new SqlConnection("Data Source=HOME-PC\\GGEZ;Initial Catalog=ConceptHotel;Integrated Security=True");
             sqlConnection.Open();
             SqlCommand sqlCommand = sqlConnection.CreateCommand();
             sqlCommand.CommandText = selectSQL;
-            SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand); //обработчик комманды
-            SqlDataAdapter.Fill(dataTable); //получаем таблицу с результатами
+            SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand); 
+            SqlDataAdapter.Fill(dataTable); 
             return dataTable;
         }
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            string[] wordsToCheck = { "/", "--", "'", "~", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "`", ";", ":", "<", ">", "\\", "|" }; // Массив запрещённых слов/символов от sql иньекций
+            string[] wordsToCheck = { "/", "--", "'", "~", "!", "#", "$", "%", "^", "&", "*", "(", ")", "+", "`", ";", ":", "<", ">", "\\", "|" }; 
             if (wordsToCheck.Any(word => textBoxUsername.Text.Contains(word)) || wordsToCheck.Any(word => textBoxPassword.Text.Contains(word)))
             {
                 MessageBox.Show("Введенны недопустимые символы");
                 return;
             }
-            if (textBoxUsername.Text.Length > 0) // проверяем введён ли логин     
+            if (textBoxUsername.Text.Length > 0)    
             {
-                if (textBoxPassword.Text.Length > 0) // проверяем введён ли пароль         
-                {             // ищем в базе данных пользователя с такими данными         
-                    DataTable dt_user = Select($"SELECT * FROM [dbo].[Users] WHERE [Login] = '{textBoxUsername.Text}' AND [Password] = '{textBoxUsername.Text}'");
-                    if (dt_user.Rows.Count > 0) // если такая запись существует       
+                if (textBoxPassword.Text.Length > 0)      
+                {                    
+                    DataTable dt_user = Select($"SELECT * FROM [dbo].[Users] WHERE [Login] = '{textBoxUsername.Text}' AND [Password] = '{textBoxPassword.Text}'");
+                    if (dt_user.Rows.Count > 0)  
                     {
                         FromDashboard fd = new FromDashboard();
                         fd.username = textBoxUsername.Text;
@@ -101,11 +101,11 @@ namespace HotelApp2
                         fd.Show();
 
                     }
-                    else MessageBox.Show("Пользователя не найден"); // выводим ошибку  
+                    else MessageBox.Show("Ошибка пароля или логина");
                 }
-                else MessageBox.Show("Введите пароль"); // выводим ошибку    
+                else MessageBox.Show("Введите пароль");
             }
-            else MessageBox.Show("Введите логин"); // выводим ошибку 
+            else MessageBox.Show("Введите логин"); 
 
         }
     }
